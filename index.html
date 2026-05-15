@@ -10,6 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Fredoka+One&display=swap"
     rel="stylesheet">
   <style>
+    /* ============ ESTILOS (los mismos que tenías, sin cambios) ============ */
     :root {
       --yellow: #FFD90F;
       --yellow-dk: #E8C200;
@@ -1398,32 +1399,63 @@
       selectedImage: '',
       translateDebounce: null, phoneticDebounce: null,
       sentencePhoneticCache: new Map(), wordPhoneticCache: new Map(),
-      currentAudio: null   // <── referencia al audio actual para poder detenerlo
+      currentAudio: null
     };
 
     const $ = (id) => document.getElementById(id);
 
-    // ==================== TTS: VOZ DE GOOGLE TRANSLATE ====================
-    // Usamos un elemento <audio> con la URL directa — evita el bloqueo CORS de fetch()
-    // y funciona en Chrome, Firefox, Safari, Edge sin plugins ni costes.
-
+    // ==================== TTS: GOOGLE TRANSLATE (fetch + blob) + FALLBACK ====================
+    // 🟢 CAMBIO IMPORTANTE: client=tw-ob en lugar de client=gtx
     function buildTTSUrl(text, lang) {
       const langCode = lang.startsWith('es') ? 'es' : 'en';
-      return `https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl=${langCode}&q=${encodeURIComponent(text)}`;
+      return `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${langCode}&q=${encodeURIComponent(text)}`;
     }
 
-    function speakChunk(chunk, lang) {
-      return new Promise((resolve) => {
-        // Detener audio anterior si aún reproduce
-        if (STATE.currentAudio) {
-          STATE.currentAudio.pause();
-          STATE.currentAudio = null;
-        }
-        const audio = new Audio(buildTTSUrl(chunk.trim(), lang));
+    async function speakChunk(chunk, lang) {
+      // Detener audio anterior
+      if (STATE.currentAudio) {
+        STATE.currentAudio.pause();
+        if (STATE.currentAudio.src) URL.revokeObjectURL(STATE.currentAudio.src);
+        STATE.currentAudio = null;
+      }
+
+      try {
+        const response = await fetch(buildTTSUrl(chunk.trim(), lang));
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const blob = await response.blob();
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
         STATE.currentAudio = audio;
-        audio.onended = () => { STATE.currentAudio = null; resolve(); };
-        audio.onerror = () => { STATE.currentAudio = null; resolve(); };
-        audio.play().catch(() => resolve());
+
+        await new Promise((resolve, reject) => {
+          audio.onended = () => {
+            URL.revokeObjectURL(audioUrl);
+            STATE.currentAudio = null;
+            resolve();
+          };
+          audio.onerror = () => {
+            URL.revokeObjectURL(audioUrl);
+            STATE.currentAudio = null;
+            reject(new Error('Audio playback error'));
+          };
+          audio.play().catch(reject);
+        });
+      } catch (err) {
+        console.warn('Google TTS falló, usando voz local:', err);
+        await fallbackSpeak(chunk, lang);
+      }
+    }
+
+    function fallbackSpeak(text, lang) {
+      return new Promise((resolve) => {
+        if (!('speechSynthesis' in window)) return resolve();
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        utterance.rate = 0.95;
+        utterance.onend = resolve;
+        utterance.onerror = resolve;
+        window.speechSynthesis.speak(utterance);
       });
     }
 
@@ -1583,7 +1615,6 @@
       $('card-sent-front').innerHTML = formatSentence(card.sentenceEn || 'Frase de ejemplo', card.word);
       $('card-sent-back').innerHTML = formatSentence(card.sentenceEs || 'Frase traducida', card.translation);
 
-      // Imagen: si tiene ruta/base64 la muestra, si no pone emoji
       const imgHTML = (src) => src ? `<img src="${escapeHtml(src)}" alt="" onerror="this.parentElement.innerHTML='📝'">` : '📝';
       $('front-img').innerHTML = imgHTML(card.image);
       $('back-img').innerHTML = imgHTML(card.image);
