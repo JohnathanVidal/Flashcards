@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Springfield English – Flashcards (Voz natural en todos los navegadores)</title>
+  <title>Springfield English – Flashcards</title>
   <link rel="icon" href="./Image/donut1.ico">
   <link
     href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Fredoka+One&display=swap"
@@ -73,11 +73,11 @@
 
       0%,
       100% {
-        transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(1)
       }
 
       50% {
-        transform: rotate(5deg) scale(1.05);
+        transform: rotate(5deg) scale(1.05)
       }
     }
 
@@ -95,11 +95,11 @@
 
       0%,
       100% {
-        transform: rotate(-8deg) translateY(0);
+        transform: rotate(-8deg) translateY(0)
       }
 
       50% {
-        transform: rotate(8deg) translateY(-14px);
+        transform: rotate(8deg) translateY(-14px)
       }
     }
 
@@ -513,11 +513,11 @@
 
       0%,
       100% {
-        opacity: .35;
+        opacity: .35
       }
 
       50% {
-        opacity: 1;
+        opacity: 1
       }
     }
 
@@ -603,12 +603,12 @@
     @keyframes popIn {
       from {
         opacity: 0;
-        transform: scale(.5);
+        transform: scale(.5)
       }
 
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1)
       }
     }
 
@@ -1050,12 +1050,12 @@
     @keyframes toastP {
       from {
         opacity: 0;
-        transform: translateX(-50%) translateY(16px);
+        transform: translateX(-50%) translateY(16px)
       }
 
       to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        transform: translateX(-50%) translateY(0)
       }
     }
 
@@ -1114,7 +1114,7 @@
       border-radius: 99px;
     }
 
-    @media(max-width: 500px) {
+    @media(max-width:500px) {
       .form-row {
         flex-direction: column;
       }
@@ -1156,6 +1156,7 @@
       <button class="tab" data-tab="decks" onclick="switchTab('decks')">🃏 Mazos</button>
     </div>
 
+    <!-- PANEL ESTUDIAR -->
     <div class="panel active" id="panel-study">
       <div class="study-top">
         <div class="stat-row">
@@ -1178,11 +1179,11 @@
             <div class="card-body">
               <span class="card-counter" id="card-counter">1/1</span>
               <button class="snd-word" title="🔊 Escuchar palabra"
-                onclick="event.stopPropagation(); speakFront()">🔊</button>
+                onclick="event.stopPropagation();speakFront()">🔊</button>
               <div class="card-img" id="front-img">📝</div>
               <div class="card-word" id="card-word">WORD</div>
               <div class="card-phonetic" id="card-phonetic"></div>
-              <div class="sent-wrap" onclick="event.stopPropagation(); speakSentFront()">
+              <div class="sent-wrap" onclick="event.stopPropagation();speakSentFront()">
                 <div class="card-sentence" id="card-sent-front">Frase de ejemplo</div>
                 <button class="snd-sent" title="🔉 Escuchar frase">🔉</button>
               </div>
@@ -1193,12 +1194,12 @@
             <div class="cstripe bs"></div>
             <div class="card-body">
               <button class="snd-word" style="background:var(--green);" title="🔊 Escuchar traducción"
-                onclick="event.stopPropagation(); speakBack()">🔊</button>
+                onclick="event.stopPropagation();speakBack()">🔊</button>
               <div class="card-img" id="back-img">📝</div>
               <div class="back-label">Traducción</div>
               <div class="card-translation" id="card-trans">traducción</div>
               <div class="back-label" style="margin-top:4px;">Frase traducida</div>
-              <div class="sent-wrap" onclick="event.stopPropagation(); speakSentBack()">
+              <div class="sent-wrap" onclick="event.stopPropagation();speakSentBack()">
                 <div class="card-sentence" id="card-sent-back" style="border-color:#7ED957;">Frase traducida</div>
                 <button class="snd-sent" style="background:var(--green-dk);"
                   title="🔉 Escuchar frase traducida">🔉</button>
@@ -1222,10 +1223,11 @@
       </div>
       <div class="sec-row" id="sec-row">
         <button class="btn btn-shuf btn-sm" onclick="shuffleDeck()">⇌ Barajar</button>
-        <button class="btn btn-rst btn-sm" onclick="restartStudy()">↺ Reiniciar</button>
+        <button class="btn btn-rst  btn-sm" onclick="restartStudy()">↺ Reiniciar</button>
       </div>
     </div>
 
+    <!-- PANEL CARTAS -->
     <div class="panel" id="panel-add">
       <div class="box">
         <h2>✏️ <span id="form-title">Nueva Flashcard</span></h2>
@@ -1292,6 +1294,7 @@
       <div class="card-list" id="card-list"></div>
     </div>
 
+    <!-- PANEL MAZOS -->
     <div class="panel" id="panel-decks">
       <div class="new-deck-box">
         <h3>🃏 <span id="deck-form-title">Nuevo Mazo</span></h3>
@@ -1300,7 +1303,7 @@
             <label>Nombre del mazo *</label>
             <input class="inp" id="deck-name" placeholder="Ej: Verbos básicos">
           </div>
-          <div class="fg" style="min-width:120px; max-width:160px;">
+          <div class="fg" style="min-width:120px;max-width:160px;">
             <label>Emoji / ícono</label>
             <input class="inp" id="deck-icon" placeholder="📚">
           </div>
@@ -1319,13 +1322,15 @@
           <button class="btn btn-shuf btn-sm" onclick="clearDeckForm()">🗑️ Limpiar</button>
         </div>
       </div>
-
-      <div class="sec-title"><span>🗂️ Tus mazos</span><span
-          style="font-family:'Fredoka One',cursive;font-size:12px;color:#777;">Toca “Play” para estudiar</span></div>
+      <div class="sec-title">
+        <span>🗂️ Tus mazos</span>
+        <span style="font-family:'Fredoka One',cursive;font-size:12px;color:#777;">Toca "Play" para estudiar</span>
+      </div>
       <div class="deck-grid" id="deck-grid"></div>
     </div>
   </div>
 
+  <!-- MODAL CONFIRMACIÓN -->
   <div class="overlay" id="overlay">
     <div class="modal" id="modal">
       <h3 id="modal-title">Confirmar</h3>
@@ -1348,43 +1353,78 @@
       { id: 'd2', name: 'Casa y objetos', icon: '🏠', direction: 'en-es', createdAt: Date.now() - 90000 }
     ];
 
+    // ── Las 3 cartas por defecto con imagen local ──
     const DEFAULT_CARDS = [
-      { id: 'c1', deckId: 'd1', word: 'make', translation: 'hacer', sentenceEn: 'She likes to make cakes.', sentenceEs: 'A ella le gusta hacer pasteles.', phonetic: '/meɪk/', sentencePhonetic: '/ʃiː laɪks tə meɪk keɪks/', image: '', createdAt: Date.now() - 80000, updatedAt: Date.now() - 80000 },
-      { id: 'c2', deckId: 'd1', word: 'go', translation: 'ir', sentenceEn: 'We go to school every day.', sentenceEs: 'Vamos a la escuela todos los días.', phonetic: '/ɡoʊ/', sentencePhonetic: '/wiː ɡoʊ tə skuːl ˈevri deɪ/', image: '', createdAt: Date.now() - 70000, updatedAt: Date.now() - 70000 },
-      { id: 'c3', deckId: 'd2', word: 'table', translation: 'mesa', sentenceEn: 'The book is on the table.', sentenceEs: 'El libro está sobre la mesa.', phonetic: '/ˈteɪbəl/', sentencePhonetic: '/ðə bʊk ɪz ɑn ðə ˈteɪbəl/', image: '', createdAt: Date.now() - 60000, updatedAt: Date.now() - 60000 }
+      {
+        id: 'c1', deckId: 'd1',
+        word: 'make', translation: 'hacer',
+        sentenceEn: 'She likes to make cakes.',
+        sentenceEs: 'A ella le gusta hacer pasteles.',
+        phonetic: '/meɪk/',
+        sentencePhonetic: '/ʃiː laɪks tə meɪk keɪks/',
+        image: './Image/img01.png',
+        createdAt: Date.now() - 80000, updatedAt: Date.now() - 80000
+      },
+      {
+        id: 'c2', deckId: 'd1',
+        word: 'write', translation: 'escribir',
+        sentenceEn: 'He can write the answer.',
+        sentenceEs: 'Él puede escribir la respuesta.',
+        phonetic: '/raɪt/',
+        sentencePhonetic: '/hiː kæn raɪt ðə ˈænsər/',
+        image: './Image/img02.png',
+        createdAt: Date.now() - 70000, updatedAt: Date.now() - 70000
+      },
+      {
+        id: 'c3', deckId: 'd1',
+        word: 'could', translation: 'podría',
+        sentenceEn: 'He could ride my bike.',
+        sentenceEs: 'Él podría andar en mi bicicleta.',
+        phonetic: '/kʊd/',
+        sentencePhonetic: '/hiː kʊd raɪd maɪ baɪk/',
+        image: './Image/img03.png',
+        createdAt: Date.now() - 60000, updatedAt: Date.now() - 60000
+      }
     ];
 
     const STATE = {
-      decks: [],
-      cards: [],
+      decks: [], cards: [],
       activeDeckId: '',
-      studyQueue: [],
-      studyIndex: 0,
+      studyQueue: [], studyIndex: 0,
       learnedThisRound: new Set(),
-      editingCardId: null,
-      editingDeckId: null,
+      editingCardId: null, editingDeckId: null,
       deckDirection: 'en-es',
       pendingDelete: null,
       selectedImage: '',
-      translateDebounce: null,
-      phoneticDebounce: null,
-      sentencePhoneticCache: new Map(),
-      wordPhoneticCache: new Map()
+      translateDebounce: null, phoneticDebounce: null,
+      sentencePhoneticCache: new Map(), wordPhoneticCache: new Map(),
+      currentAudio: null   // <── referencia al audio actual para poder detenerlo
     };
 
     const $ = (id) => document.getElementById(id);
 
-    // ==================== SÍNTESIS DE VOZ (Google Translate TTS público) ====================
-    async function speakText(text, lang = 'en-US') {
-      const clean = text.trim();
-      if (!clean) return;
+    // ==================== TTS: VOZ DE GOOGLE TRANSLATE ====================
+    // Usamos un elemento <audio> con la URL directa — evita el bloqueo CORS de fetch()
+    // y funciona en Chrome, Firefox, Safari, Edge sin plugins ni costes.
 
-      // Divide textos largos (>180 caracteres) para evitar errores de URL
-      const chunks = splitTextForTTS(clean, 180);
+    function buildTTSUrl(text, lang) {
+      const langCode = lang.startsWith('es') ? 'es' : 'en';
+      return `https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl=${langCode}&q=${encodeURIComponent(text)}`;
+    }
 
-      for (const chunk of chunks) {
-        await speakChunk(chunk, lang);
-      }
+    function speakChunk(chunk, lang) {
+      return new Promise((resolve) => {
+        // Detener audio anterior si aún reproduce
+        if (STATE.currentAudio) {
+          STATE.currentAudio.pause();
+          STATE.currentAudio = null;
+        }
+        const audio = new Audio(buildTTSUrl(chunk.trim(), lang));
+        STATE.currentAudio = audio;
+        audio.onended = () => { STATE.currentAudio = null; resolve(); };
+        audio.onerror = () => { STATE.currentAudio = null; resolve(); };
+        audio.play().catch(() => resolve());
+      });
     }
 
     function splitTextForTTS(text, maxLen) {
@@ -1393,64 +1433,38 @@
       const sentences = text.match(/[^.!?]+[.!?]+[\s]*/g) || [text];
       let current = '';
       for (const s of sentences) {
-        if ((current + s).length <= maxLen) {
-          current += s;
-        } else {
-          if (current) parts.push(current.trim());
-          current = s;
-        }
+        if ((current + s).length <= maxLen) { current += s; }
+        else { if (current) parts.push(current.trim()); current = s; }
       }
       if (current.trim()) parts.push(current.trim());
       return parts.length ? parts : [text];
     }
 
-    function speakChunk(chunk, lang) {
-      return new Promise((resolve) => {
-        const langCode = lang.startsWith('es') ? 'es' : 'en';
-        const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl=${langCode}&q=${encodeURIComponent(chunk)}`;
-
-        fetch(url)
-          .then(response => {
-            if (!response.ok) throw new Error('Error al obtener el audio');
-            return response.blob();
-          })
-          .then(blob => {
-            const audioUrl = URL.createObjectURL(blob);
-            const audio = new Audio(audioUrl);
-            audio.onended = () => {
-              URL.revokeObjectURL(audioUrl);
-              resolve();
-            };
-            audio.onerror = () => {
-              URL.revokeObjectURL(audioUrl);
-              resolve(); // Si falla, simplemente seguimos
-            };
-            audio.play().catch(() => {
-              URL.revokeObjectURL(audioUrl);
-              resolve();
-            });
-          })
-          .catch(() => resolve()); // Silencio si la red falla
-      });
+    async function speakText(text, lang = 'en-US') {
+      const clean = (text || '').trim();
+      if (!clean) return;
+      const chunks = splitTextForTTS(clean, 180);
+      for (const chunk of chunks) { await speakChunk(chunk, lang); }
     }
 
-    // ==================== FUNCIONES AUXILIARES ====================
-    function uid(prefix = 'id') {
-      return prefix + '_' + Math.random().toString(36).slice(2, 9) + '_' + Date.now().toString(36);
-    }
+    // ==================== UTILIDADES ====================
+    function uid(prefix = 'id') { return prefix + '_' + Math.random().toString(36).slice(2, 9) + '_' + Date.now().toString(36); }
 
     function toast(msg) {
       const old = document.querySelector('.toast');
       if (old) old.remove();
       const t = document.createElement('div');
-      t.className = 'toast';
-      t.textContent = msg;
+      t.className = 'toast'; t.textContent = msg;
       document.body.appendChild(t);
       setTimeout(() => t.remove(), 1800);
     }
 
-    function escapeText(v) {
-      return (v ?? '').toString().trim();
+    function escapeText(v) { return (v ?? '').toString().trim(); }
+
+    function escapeHtml(str) {
+      return (str ?? '').toString()
+        .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;').replaceAll("'", '&#039;');
     }
 
     function saveState() {
@@ -1473,6 +1487,7 @@
       if (!STATE.decks.some(d => d.id === STATE.activeDeckId)) STATE.activeDeckId = STATE.decks[0]?.id || '';
     }
 
+    // ==================== NAVEGACIÓN / TABS ====================
     function switchTab(tab) {
       document.querySelectorAll('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
       document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -1484,7 +1499,6 @@
 
     function getDeckById(id) { return STATE.decks.find(d => d.id === id); }
     function getActiveDeck() { return getDeckById(STATE.activeDeckId) || STATE.decks[0]; }
-
     function dirLabel(dir) { return dir === 'es-en' ? 'ES → EN' : 'EN → ES'; }
 
     function renderSelectors() {
@@ -1496,46 +1510,30 @@
       $('form-deck-sel').value = STATE.activeDeckId;
     }
 
-    function escapeHtml(str) {
-      return (str ?? '').toString()
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-
     function onDeckChange() {
       STATE.activeDeckId = $('active-deck-sel').value;
       saveState();
-      renderStudy();
-      renderCardList();
-      renderDecks();
+      renderStudy(); renderCardList(); renderDecks();
     }
 
+    // ==================== ESTUDIO ====================
     function handleFlip() {
       if ($('final-screen').classList.contains('active')) return;
       $('flip-card').classList.toggle('flipped');
     }
 
-    function getStudyCards() {
-      return STATE.cards.filter(c => c.deckId === STATE.activeDeckId);
-    }
+    function getStudyCards() { return STATE.cards.filter(c => c.deckId === STATE.activeDeckId); }
 
     function buildStudyQueue(shuffle = false) {
-      const cards = getStudyCards();
-      const ids = cards.map(c => c.id);
+      const ids = getStudyCards().map(c => c.id);
       if (shuffle) ids.sort(() => Math.random() - 0.5);
-      STATE.studyQueue = ids;
-      STATE.studyIndex = 0;
-      STATE.learnedThisRound = new Set();
+      STATE.studyQueue = ids; STATE.studyIndex = 0; STATE.learnedThisRound = new Set();
     }
 
     function updateStudyStats() {
       $('s-learned').textContent = STATE.learnedThisRound.size;
       $('s-remain').textContent = Math.max(STATE.studyQueue.length - STATE.studyIndex, 0);
-      const total = STATE.studyQueue.length || 0;
-      const pct = total ? (STATE.studyIndex / total) * 100 : 0;
+      const pct = STATE.studyQueue.length ? (STATE.studyIndex / STATE.studyQueue.length) * 100 : 0;
       $('prog-fill').style.width = `${Math.min(pct, 100)}%`;
     }
 
@@ -1565,11 +1563,10 @@
         $('card-word').textContent = '¡LISTO!';
         $('card-trans').textContent = 'No hay más cartas';
         $('card-phonetic').textContent = '';
-        $('card-sent-front').textContent = 'Agrega cartas para empezar a estudiar.';
-        $('card-sent-back').textContent = 'Agrega cartas para empezar a estudiar.';
+        $('card-sent-front').textContent = 'Agrega cartas para empezar.';
+        $('card-sent-back').textContent = 'Agrega cartas para empezar.';
         $('card-counter').textContent = '0/0';
-        $('front-img').innerHTML = '✨';
-        $('back-img').innerHTML = '✨';
+        $('front-img').innerHTML = '✨'; $('back-img').innerHTML = '✨';
         $('final-sub').textContent = 'Crea cartas en la pestaña Cartas.';
         $('final-screen').classList.add('active');
         $('action-row').style.display = 'none';
@@ -1579,15 +1576,17 @@
         return;
       }
       const total = STATE.studyQueue.length;
-      const num = STATE.studyIndex + 1;
-      $('card-counter').textContent = `${num}/${total}`;
+      $('card-counter').textContent = `${STATE.studyIndex + 1}/${total}`;
       $('card-word').textContent = card.word || '';
       $('card-trans').textContent = card.translation || '';
       $('card-phonetic').textContent = card.phonetic || '';
       $('card-sent-front').innerHTML = formatSentence(card.sentenceEn || 'Frase de ejemplo', card.word);
       $('card-sent-back').innerHTML = formatSentence(card.sentenceEs || 'Frase traducida', card.translation);
-      $('front-img').innerHTML = card.image ? `<img src="${card.image}" alt="">` : '📝';
-      $('back-img').innerHTML = card.image ? `<img src="${card.image}" alt="">` : '📝';
+
+      // Imagen: si tiene ruta/base64 la muestra, si no pone emoji
+      const imgHTML = (src) => src ? `<img src="${escapeHtml(src)}" alt="" onerror="this.parentElement.innerHTML='📝'">` : '📝';
+      $('front-img').innerHTML = imgHTML(card.image);
+      $('back-img').innerHTML = imgHTML(card.image);
       updateStudyStats();
     }
 
@@ -1598,36 +1597,28 @@
       return safe.replace(re, '<em>$1</em>');
     }
 
-    function escapeRegExp(s) {
-      return (s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
+    function escapeRegExp(s) { return (s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
     function markYes() {
-      const card = currentStudyCard();
-      if (!card) return;
+      const card = currentStudyCard(); if (!card) return;
       STATE.learnedThisRound.add(card.id);
       STATE.studyIndex++;
       $('flip-card').classList.remove('flipped');
       if (STATE.studyIndex >= STATE.studyQueue.length) {
-        $('final-sub').textContent = `Terminaste ${getActiveDeck()?.name || 'el mazo'} con ${STATE.learnedThisRound.size} carta(s) repasada(s).`;
+        $('final-sub').textContent = `Terminaste "${getActiveDeck()?.name || 'el mazo'}" con ${STATE.learnedThisRound.size} carta(s) repasada(s).`;
         $('final-screen').classList.add('active');
         $('action-row').style.display = 'none';
         $('sec-row').style.display = 'none';
         toast('¡Buen trabajo!');
-      } else {
-        renderCurrentStudyCard();
-      }
+      } else { renderCurrentStudyCard(); }
       updateStudyStats();
     }
 
     function markNo() {
-      const card = currentStudyCard();
-      if (!card) return;
-      const remaining = STATE.studyQueue.slice(STATE.studyIndex + 1);
-      STATE.studyQueue = [...remaining, card.id];
+      const card = currentStudyCard(); if (!card) return;
+      STATE.studyQueue = [...STATE.studyQueue.slice(STATE.studyIndex + 1), card.id];
       $('flip-card').classList.remove('flipped');
-      renderCurrentStudyCard();
-      updateStudyStats();
+      renderCurrentStudyCard(); updateStudyStats();
       toast('La repetirás más tarde');
     }
 
@@ -1636,17 +1627,11 @@
       STATE.studyQueue.sort(() => Math.random() - 0.5);
       if (currentId) {
         const idx = STATE.studyQueue.indexOf(currentId);
-        if (idx > 0) {
-          const [item] = STATE.studyQueue.splice(idx, 1);
-          STATE.studyQueue.unshift(item);
-        }
+        if (idx > 0) { const [item] = STATE.studyQueue.splice(idx, 1); STATE.studyQueue.unshift(item); }
       }
-      STATE.studyIndex = 0;
-      STATE.learnedThisRound = new Set();
+      STATE.studyIndex = 0; STATE.learnedThisRound = new Set();
       $('flip-card').classList.remove('flipped');
-      renderCurrentStudyCard();
-      updateStudyStats();
-      toast('Mazo barajado');
+      renderCurrentStudyCard(); updateStudyStats(); toast('Mazo barajado');
     }
 
     function restartStudy() {
@@ -1656,27 +1641,47 @@
       $('card-area').style.display = 'block';
       $('action-row').style.display = 'flex';
       $('sec-row').style.display = 'flex';
-      renderCurrentStudyCard();
-      updateStudyStats();
-      toast('Reiniciado');
+      renderCurrentStudyCard(); updateStudyStats(); toast('Reiniciado');
     }
 
+    // ==================== BOTONES DE AUDIO ====================
+    function speakFront() {
+      const card = currentStudyCard(); if (!card) return;
+      const deck = getActiveDeck();
+      const text = deck?.direction === 'es-en' ? (card.translation || '') : (card.word || '');
+      const lang = deck?.direction === 'es-en' ? 'es-ES' : 'en-US';
+      speakText(text, lang);
+    }
+    function speakBack() {
+      const card = currentStudyCard(); if (!card) return;
+      const deck = getActiveDeck();
+      const text = deck?.direction === 'es-en' ? (card.word || '') : (card.translation || '');
+      const lang = deck?.direction === 'es-en' ? 'en-US' : 'es-ES';
+      speakText(text, lang);
+    }
+    function speakSentFront() { const c = currentStudyCard(); if (c) speakText(c.sentenceEn || '', 'en-US'); }
+    function speakSentBack() { const c = currentStudyCard(); if (c) speakText(c.sentenceEs || '', 'es-ES'); }
+
+    // ==================== AUTOCOMPLETADO / TRADUCCIÓN ====================
     function clearAC() { $('ac-list').innerHTML = ''; $('ac-list').classList.remove('open'); }
     function closeAC() { setTimeout(clearAC, 200); }
 
     const SAMPLE_WORDS = [
-      ['make', 'hacer'], ['go', 'ir'], ['take', 'tomar'], ['get', 'obtener'], ['give', 'dar'], ['see', 'ver'], ['know', 'saber'], ['come', 'venir'],
-      ['want', 'querer'], ['need', 'necesitar'], ['play', 'jugar'], ['run', 'correr'], ['read', 'leer'], ['write', 'escribir'], ['speak', 'hablar']
+      ['make', 'hacer'], ['go', 'ir'], ['take', 'tomar'], ['get', 'obtener'], ['give', 'dar'],
+      ['see', 'ver'], ['know', 'saber'], ['come', 'venir'], ['want', 'querer'], ['need', 'necesitar'],
+      ['play', 'jugar'], ['run', 'correr'], ['read', 'leer'], ['write', 'escribir'], ['speak', 'hablar'],
+      ['could', 'podría'], ['ride', 'montar'], ['like', 'gustar'], ['can', 'poder'], ['have', 'tener']
     ];
 
     function onWordInput(value) {
       clearAC();
       const q = escapeText(value).toLowerCase();
       if (!q) return;
-      const matches = SAMPLE_WORDS.filter(([w, t]) => w.startsWith(q)).slice(0, 6);
+      const matches = SAMPLE_WORDS.filter(([w]) => w.startsWith(q)).slice(0, 6);
       if (matches.length) {
-        const html = matches.map(([w, t]) => `<div class="ac-item" onclick="pickSuggestion('${w}','${t}')"><span>${w}</span><span class="ac-pos">${t}</span></div>`).join('');
-        $('ac-list').innerHTML = html;
+        $('ac-list').innerHTML = matches.map(([w, t]) =>
+          `<div class="ac-item" onclick="pickSuggestion('${w}','${t}')"><span>${w}</span><span class="ac-pos">${t}</span></div>`
+        ).join('');
         $('ac-list').classList.add('open');
       }
       debounceTranslateWord(q);
@@ -1694,8 +1699,8 @@
       clearTimeout(STATE.translateDebounce);
       STATE.translateDebounce = setTimeout(async () => {
         if (!word) { $('inp-trans').value = ''; return; }
-        const result = await translateText(word, 'en', 'es');
-        if (result) $('inp-trans').value = result;
+        const r = await translateText(word, 'en', 'es');
+        if (r) $('inp-trans').value = r;
       }, 450);
     }
 
@@ -1704,13 +1709,13 @@
       clearTimeout(STATE.phoneticDebounce);
       STATE.translateDebounce = setTimeout(async () => {
         if (!value) { $('inp-sent-es').value = ''; return; }
-        const result = await translateText(value, 'en', 'es');
-        if (result) $('inp-sent-es').value = result;
+        const r = await translateText(value, 'en', 'es');
+        if (r) $('inp-sent-es').value = r;
       }, 500);
       STATE.phoneticDebounce = setTimeout(async () => {
         if (!value) { $('inp-phonetic-s').value = ''; return; }
-        const result = await getSentencePhonetics(value);
-        if (result) $('inp-phonetic-s').value = result;
+        const r = await getSentencePhonetics(value);
+        if (r) $('inp-phonetic-s').value = r;
       }, 700);
     }
 
@@ -1718,94 +1723,52 @@
       clearTimeout(STATE.phoneticDebounce);
       STATE.phoneticDebounce = setTimeout(async () => {
         if (!word) { $('inp-phonetic').value = ''; return; }
-        const result = await getWordPhonetic(word);
-        if (result) $('inp-phonetic').value = result;
+        const r = await getWordPhonetic(word);
+        if (r) $('inp-phonetic').value = r;
       }, 450);
     }
 
     async function translateText(text, from = 'en', to = 'es') {
-      const clean = escapeText(text);
-      if (!clean) return '';
+      const clean = escapeText(text); if (!clean) return '';
       try {
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${encodeURIComponent(from)}&tl=${encodeURIComponent(to)}&dt=t&q=${encodeURIComponent(clean)}`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('translate failed');
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${from}&tl=${to}&dt=t&q=${encodeURIComponent(clean)}`;
+        const res = await fetch(url); if (!res.ok) throw new Error();
         const data = await res.json();
-        return Array.isArray(data?.[0]) ? data[0].map(part => part?.[0] || '').join('') : '';
-      } catch (e) {
-        return '';
-      }
+        return Array.isArray(data?.[0]) ? data[0].map(p => p?.[0] || '').join('') : '';
+      } catch { return ''; }
     }
 
     async function getWordPhonetic(word) {
-      const clean = escapeText(word).toLowerCase();
-      if (!clean) return '';
+      const clean = escapeText(word).toLowerCase(); if (!clean) return '';
       if (STATE.wordPhoneticCache.has(clean)) return STATE.wordPhoneticCache.get(clean);
       try {
         const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(clean)}`);
-        if (!res.ok) throw new Error('dict failed');
+        if (!res.ok) throw new Error();
         const data = await res.json();
         const entry = Array.isArray(data) ? data[0] : null;
         const ph = entry?.phonetic || entry?.phonetics?.find(p => p?.text)?.text || '';
-        const normalized = ph ? (ph.startsWith('/') ? ph : `/${ph}/`) : '';
-        STATE.wordPhoneticCache.set(clean, normalized);
-        return normalized;
-      } catch (e) {
-        return '';
-      }
+        const norm = ph ? (ph.startsWith('/') ? ph : `/${ph}/`) : '';
+        STATE.wordPhoneticCache.set(clean, norm);
+        return norm;
+      } catch { return ''; }
     }
 
     async function getSentencePhonetics(sentence) {
-      const clean = escapeText(sentence);
-      if (!clean) return '';
+      const clean = escapeText(sentence); if (!clean) return '';
       if (STATE.sentencePhoneticCache.has(clean)) return STATE.sentencePhoneticCache.get(clean);
       const tokens = clean.match(/[A-Za-z']+|[^A-Za-z']+/g) || [];
       const uniques = [...new Set(tokens.filter(t => /[A-Za-z']+/.test(t)).map(t => t.toLowerCase()))];
       const map = new Map();
-      await Promise.all(uniques.map(async word => {
-        const ph = await getWordPhonetic(word);
-        map.set(word, ph || word);
-      }));
-      const result = tokens.map(tok => {
-        if (/^[A-Za-z']+$/.test(tok)) return map.get(tok.toLowerCase()) || tok;
-        return tok;
-      }).join('').replace(/\s+/g, ' ').trim();
-      const wrapped = result ? `/${result.replace(/^\/|\/$/g, '')}/` : '';
+      await Promise.all(uniques.map(async w => { const ph = await getWordPhonetic(w); map.set(w, ph || w); }));
+      const result = tokens.map(tok => /^[A-Za-z']+$/.test(tok) ? (map.get(tok.toLowerCase()) || tok) : tok).join('').replace(/\s+/g, ' ').trim();
+      const wrapped = result ? `/${result.replace(/^\/|\/$/g, '')}/ ` : '';
       STATE.sentencePhoneticCache.set(clean, wrapped);
       return wrapped;
     }
 
-    function speakFront() {
-      const card = currentStudyCard();
-      if (!card) return;
-      const deck = getActiveDeck();
-      const text = deck?.direction === 'es-en' ? (card.translation || '') : (card.word || '');
-      speakText(text, deck?.direction === 'es-en' ? 'es-ES' : 'en-US');
-    }
-
-    function speakBack() {
-      const card = currentStudyCard();
-      if (!card) return;
-      const deck = getActiveDeck();
-      const text = deck?.direction === 'es-en' ? (card.word || '') : (card.translation || '');
-      speakText(text, deck?.direction === 'es-en' ? 'en-US' : 'es-ES');
-    }
-
-    function speakSentFront() {
-      const card = currentStudyCard();
-      if (!card) return;
-      speakText(card.sentenceEn || '', 'en-US');
-    }
-
-    function speakSentBack() {
-      const card = currentStudyCard();
-      if (!card) return;
-      speakText(card.sentenceEs || '', 'es-ES');
-    }
-
+    // ==================== FORMULARIO CARTAS ====================
     function handleImg(input) {
-      const file = input.files?.[0];
-      if (!file) return;
+      const file = input.files?.[0]; if (!file) return;
       const reader = new FileReader();
       reader.onload = e => {
         STATE.selectedImage = e.target.result;
@@ -1819,20 +1782,12 @@
     function clearForm() {
       STATE.editingCardId = null;
       $('form-title').textContent = 'Nueva Flashcard';
-      $('inp-word').value = '';
-      $('inp-trans').value = '';
-      $('inp-sent-en').value = '';
-      $('inp-sent-es').value = '';
-      $('inp-phonetic').value = '';
-      $('inp-phonetic-s').value = '';
+      ['inp-word', 'inp-trans', 'inp-sent-en', 'inp-sent-es', 'inp-phonetic', 'inp-phonetic-s'].forEach(id => $(id).value = '');
       $('img-file').value = '';
-      $('img-prev').src = '';
-      $('img-prev').style.display = 'none';
+      $('img-prev').src = ''; $('img-prev').style.display = 'none';
       $('img-lbl').textContent = '📷 Toca para subir imagen';
       STATE.selectedImage = '';
-      clearAC();
-      $('inp-word').focus();
-      toast('Formulario limpio');
+      clearAC(); $('inp-word').focus(); toast('Formulario limpio');
     }
 
     async function saveCard() {
@@ -1851,68 +1806,57 @@
 
       if (!phonetic) phonetic = await getWordPhonetic(word);
       if (!phoneticS) phoneticS = await getSentencePhonetics(sentenceEn);
-      if (!STATE.selectedImage && $('img-prev').src && $('img-prev').src.startsWith('data:')) STATE.selectedImage = $('img-prev').src;
+      if (!STATE.selectedImage && $('img-prev').src?.startsWith('data:')) STATE.selectedImage = $('img-prev').src;
 
       const payload = {
-        deckId,
-        word,
-        translation,
+        deckId, word, translation,
         sentenceEn,
         sentenceEs: sentenceEs || (await translateText(sentenceEn, 'en', 'es')),
-        phonetic,
-        sentencePhonetic: phoneticS,
-        image: STATE.selectedImage || '',
+        phonetic, sentencePhonetic: phoneticS,
+        image: STATE.selectedImage || ''
       };
 
       if (STATE.editingCardId) {
         const idx = STATE.cards.findIndex(c => c.id === STATE.editingCardId);
-        if (idx >= 0) {
-          STATE.cards[idx] = { ...STATE.cards[idx], ...payload, updatedAt: Date.now() };
-        }
+        if (idx >= 0) STATE.cards[idx] = { ...STATE.cards[idx], ...payload, updatedAt: Date.now() };
         toast('Carta actualizada');
       } else {
         STATE.cards.push({ id: uid('c'), ...payload, createdAt: Date.now(), updatedAt: Date.now() });
         toast('Carta guardada');
       }
-      saveState();
-      renderCardList();
-      renderStudy();
-      clearForm();
+      saveState(); renderCardList(); renderStudy(); clearForm();
     }
 
     function renderCardList() {
       const filter = $('filter-deck-sel').value || 'all';
       const cards = filter === 'all' ? STATE.cards : STATE.cards.filter(c => c.deckId === filter);
-      const sorted = [...cards].sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || b.createdAt || 0));
+      const sorted = [...cards].sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
 
       if (!sorted.length) {
         $('card-list').innerHTML = `<div class="empty"><span>🗒️</span>No hay cartas en este mazo.</div>`;
         return;
       }
-
       $('card-list').innerHTML = sorted.map(card => {
         const deck = getDeckById(card.deckId);
         return `
-            <div class="cli">
-              <div class="cli-thumb">${card.image ? `<img src="${card.image}" alt="">` : '📝'}</div>
-              <div class="cli-info">
-                <div class="cli-word">${escapeHtml(card.word)}</div>
-                <div class="cli-trans">${escapeHtml(card.translation)}</div>
-                <div style="font-size:11px;color:#999;margin-top:2px;">${escapeHtml(deck?.name || 'Sin mazo')} • ${escapeHtml(card.phonetic || '')}</div>
-              </div>
-              <div class="cli-acts">
-                <button class="cb cb-snd" title="Escuchar" onclick="playCardAudio('${card.id}')">🔊</button>
-                <button class="cb cb-edt" title="Editar" onclick="editCard('${card.id}')">✏️</button>
-                <button class="cb cb-del" title="Eliminar" onclick="askDeleteCard('${card.id}')">🗑️</button>
-              </div>
+          <div class="cli">
+            <div class="cli-thumb">${card.image ? `<img src="${escapeHtml(card.image)}" alt="" onerror="this.parentElement.innerHTML='📝'">` : '📝'}</div>
+            <div class="cli-info">
+              <div class="cli-word">${escapeHtml(card.word)}</div>
+              <div class="cli-trans">${escapeHtml(card.translation)}</div>
+              <div style="font-size:11px;color:#999;margin-top:2px;">${escapeHtml(deck?.name || 'Sin mazo')} • ${escapeHtml(card.phonetic || '')}</div>
             </div>
-          `;
+            <div class="cli-acts">
+              <button class="cb cb-snd" title="Escuchar" onclick="playCardAudio('${card.id}')">🔊</button>
+              <button class="cb cb-edt" title="Editar"   onclick="editCard('${card.id}')">✏️</button>
+              <button class="cb cb-del" title="Eliminar" onclick="askDeleteCard('${card.id}')">🗑️</button>
+            </div>
+          </div>`;
       }).join('');
     }
 
     function playCardAudio(cardId) {
-      const card = STATE.cards.find(c => c.id === cardId);
-      if (!card) return;
+      const card = STATE.cards.find(c => c.id === cardId); if (!card) return;
       const deck = getDeckById(card.deckId);
       const text = deck?.direction === 'es-en' ? card.translation : card.word;
       const lang = deck?.direction === 'es-en' ? 'es-ES' : 'en-US';
@@ -1920,8 +1864,7 @@
     }
 
     function editCard(cardId) {
-      const card = STATE.cards.find(c => c.id === cardId);
-      if (!card) return;
+      const card = STATE.cards.find(c => c.id === cardId); if (!card) return;
       STATE.editingCardId = cardId;
       $('form-title').textContent = 'Editar Flashcard';
       $('inp-word').value = card.word || '';
@@ -1933,12 +1876,10 @@
       $('form-deck-sel').value = card.deckId;
       STATE.selectedImage = card.image || '';
       if (card.image) {
-        $('img-prev').src = card.image;
-        $('img-prev').style.display = 'block';
+        $('img-prev').src = card.image; $('img-prev').style.display = 'block';
         $('img-lbl').textContent = 'Imagen cargada';
       } else {
-        $('img-prev').src = '';
-        $('img-prev').style.display = 'none';
+        $('img-prev').src = ''; $('img-prev').style.display = 'none';
         $('img-lbl').textContent = '📷 Toca para subir imagen';
       }
       switchTab('add');
@@ -1956,30 +1897,27 @@
 
     function deleteCard(cardId) {
       STATE.cards = STATE.cards.filter(c => c.id !== cardId);
-      saveState();
-      renderCardList();
-      renderStudy();
-      toast('Carta eliminada');
+      saveState(); renderCardList(); renderStudy(); toast('Carta eliminada');
     }
 
+    // ==================== MAZOS ====================
     function renderDecks() {
       $('deck-grid').innerHTML = STATE.decks.map(deck => {
         const count = STATE.cards.filter(c => c.deckId === deck.id).length;
         const isActive = deck.id === STATE.activeDeckId;
         return `
-            <div class="deck-card" onclick="selectDeck('${deck.id}')">
-              <div class="dc-icon">${escapeHtml(deck.icon || '🃏')}</div>
-              <div class="dc-name">${escapeHtml(deck.name)}</div>
-              <div class="dc-meta">${count} carta(s)</div>
-              <span class="dc-dir ${deck.direction === 'es-en' ? 'dir-es' : 'dir-en'}">${dirLabel(deck.direction)}</span>
-              <div class="dc-actions" onclick="event.stopPropagation()">
-                <button class="dc-btn dc-play" onclick="playDeck('${deck.id}')">▶ Play</button>
-                <button class="dc-btn dc-edit" onclick="editDeck('${deck.id}')">✏️</button>
-                <button class="dc-btn dc-del" onclick="askDeleteDeck('${deck.id}')">🗑️</button>
-              </div>
-              ${isActive ? `<div style="margin-top:8px;font-family:'Fredoka One',cursive;font-size:11px;color:var(--green-dk);">Mazo activo</div>` : ''}
+          <div class="deck-card" onclick="selectDeck('${deck.id}')">
+            <div class="dc-icon">${escapeHtml(deck.icon || '🃏')}</div>
+            <div class="dc-name">${escapeHtml(deck.name)}</div>
+            <div class="dc-meta">${count} carta(s)</div>
+            <span class="dc-dir ${deck.direction === 'es-en' ? 'dir-es' : 'dir-en'}">${dirLabel(deck.direction)}</span>
+            <div class="dc-actions" onclick="event.stopPropagation()">
+              <button class="dc-btn dc-play" onclick="playDeck('${deck.id}')">▶ Play</button>
+              <button class="dc-btn dc-edit" onclick="editDeck('${deck.id}')">✏️</button>
+              <button class="dc-btn dc-del"  onclick="askDeleteDeck('${deck.id}')">🗑️</button>
             </div>
-          `;
+            ${isActive ? `<div style="margin-top:8px;font-family:'Fredoka One',cursive;font-size:11px;color:var(--green-dk);">Mazo activo</div>` : ''}
+          </div>`;
       }).join('');
       renderSelectors();
       renderStudy();
@@ -1987,20 +1925,14 @@
 
     function selectDeck(deckId) {
       STATE.activeDeckId = deckId;
-      saveState();
-      renderSelectors();
-      renderStudy();
-      renderCardList();
+      saveState(); renderSelectors(); renderStudy(); renderCardList();
       toast('Mazo seleccionado');
     }
 
     function playDeck(deckId) {
       STATE.activeDeckId = deckId;
-      saveState();
-      renderSelectors();
-      buildStudyQueue(true);
-      switchTab('study');
-      toast('Listo para estudiar');
+      saveState(); renderSelectors(); buildStudyQueue(true);
+      switchTab('study'); toast('Listo para estudiar');
     }
 
     function setDeckDir(dir) {
@@ -2012,10 +1944,8 @@
     function clearDeckForm() {
       STATE.editingDeckId = null;
       $('deck-form-title').textContent = 'Nuevo Mazo';
-      $('deck-name').value = '';
-      $('deck-icon').value = '';
-      setDeckDir('en-es');
-      toast('Formulario limpio');
+      $('deck-name').value = ''; $('deck-icon').value = '';
+      setDeckDir('en-es'); toast('Formulario limpio');
     }
 
     function saveDeck() {
@@ -2023,7 +1953,6 @@
       const icon = escapeText($('deck-icon').value) || '🃏';
       const direction = STATE.deckDirection || 'en-es';
       if (!name) return toast('Escribe el nombre del mazo');
-
       if (STATE.editingDeckId) {
         const idx = STATE.decks.findIndex(d => d.id === STATE.editingDeckId);
         if (idx >= 0) STATE.decks[idx] = { ...STATE.decks[idx], name, icon, direction };
@@ -2032,26 +1961,19 @@
         STATE.decks.push({ id: uid('d'), name, icon, direction, createdAt: Date.now() });
         toast('Mazo guardado');
       }
-      saveState();
-      renderSelectors();
-      renderDecks();
-      clearDeckForm();
+      saveState(); renderSelectors(); renderDecks(); clearDeckForm();
     }
 
     function editDeck(deckId) {
-      const deck = STATE.decks.find(d => d.id === deckId);
-      if (!deck) return;
+      const deck = STATE.decks.find(d => d.id === deckId); if (!deck) return;
       STATE.editingDeckId = deckId;
       $('deck-form-title').textContent = 'Editar Mazo';
-      $('deck-name').value = deck.name || '';
-      $('deck-icon').value = deck.icon || '';
-      setDeckDir(deck.direction || 'en-es');
-      switchTab('decks');
+      $('deck-name').value = deck.name || ''; $('deck-icon').value = deck.icon || '';
+      setDeckDir(deck.direction || 'en-es'); switchTab('decks');
     }
 
     function askDeleteDeck(deckId) {
-      const deck = STATE.decks.find(d => d.id === deckId);
-      if (!deck) return;
+      const deck = STATE.decks.find(d => d.id === deckId); if (!deck) return;
       STATE.pendingDelete = { type: 'deck', id: deckId };
       $('modal-title').textContent = 'Eliminar mazo';
       $('modal-text').textContent = `¿Eliminar el mazo "${deck.name}"? También se borrarán todas sus cartas.`;
@@ -2065,31 +1987,21 @@
       STATE.cards = STATE.cards.filter(c => c.deckId !== deckId);
       if (STATE.activeDeckId === deckId) STATE.activeDeckId = STATE.decks[0].id;
       if (STATE.editingDeckId === deckId) clearDeckForm();
-      saveState();
-      renderSelectors();
-      renderDecks();
-      renderCardList();
-      renderStudy();
+      saveState(); renderSelectors(); renderDecks(); renderCardList(); renderStudy();
       toast('Mazo eliminado');
     }
 
+    // ==================== MODAL ====================
     function modalConfirm() {
-      const p = STATE.pendingDelete;
-      closeModal();
-      if (!p) return;
+      const p = STATE.pendingDelete; closeModal(); if (!p) return;
       if (p.type === 'card') deleteCard(p.id);
       if (p.type === 'deck') deleteDeck(p.id);
       STATE.pendingDelete = null;
     }
+    function closeModal() { $('overlay').classList.remove('open'); }
+    window.addEventListener('click', (e) => { if (e.target === $('overlay')) closeModal(); });
 
-    function closeModal() {
-      $('overlay').classList.remove('open');
-    }
-
-    window.addEventListener('click', (e) => {
-      if (e.target === $('overlay')) closeModal();
-    });
-
+    // ==================== ARRANQUE ====================
     function bootstrap() {
       loadState();
       renderSelectors();
@@ -2099,55 +2011,29 @@
       $('form-deck-sel').value = STATE.activeDeckId;
       $('filter-deck-sel').value = 'all';
       buildStudyQueue(false);
-      renderStudy();
-      renderCardList();
-      renderDecks();
-      $('inp-word').addEventListener('focus', () => clearAC());
-      $('inp-sent-en').addEventListener('blur', () => setTimeout(() => {
-        if ($('inp-sent-en').value.trim()) autoFillCurrentSentencePhonetics();
-      }, 200));
-    }
-
-    async function autoFillCurrentSentencePhonetics() {
-      const sent = $('inp-sent-en').value;
-      if (!sent.trim()) return;
-      $('inp-phonetic-s').value = await getSentencePhonetics(sent);
+      renderStudy(); renderCardList(); renderDecks();
+      $('inp-word').addEventListener('focus', clearAC);
+      $('inp-sent-en').addEventListener('blur', () => {
+        setTimeout(async () => {
+          if ($('inp-sent-en').value.trim()) $('inp-phonetic-s').value = await getSentencePhonetics($('inp-sent-en').value);
+        }, 200);
+      });
     }
 
     document.addEventListener('DOMContentLoaded', bootstrap);
 
-    // Exponer funciones globales
-    window.switchTab = switchTab;
-    window.onDeckChange = onDeckChange;
-    window.handleFlip = handleFlip;
-    window.markYes = markYes;
-    window.markNo = markNo;
-    window.shuffleDeck = shuffleDeck;
-    window.restartStudy = restartStudy;
-    window.speakFront = speakFront;
-    window.speakBack = speakBack;
-    window.speakSentFront = speakSentFront;
-    window.speakSentBack = speakSentBack;
-    window.saveCard = saveCard;
-    window.clearForm = clearForm;
-    window.renderCardList = renderCardList;
-    window.handleImg = handleImg;
-    window.onWordInput = onWordInput;
-    window.closeAC = closeAC;
-    window.pickSuggestion = pickSuggestion;
-    window.editCard = editCard;
-    window.playCardAudio = playCardAudio;
-    window.askDeleteCard = askDeleteCard;
-    window.modalConfirm = modalConfirm;
-    window.closeModal = closeModal;
-    window.selectDeck = selectDeck;
-    window.playDeck = playDeck;
-    window.editDeck = editDeck;
-    window.saveDeck = saveDeck;
-    window.clearDeckForm = clearDeckForm;
-    window.setDeckDir = setDeckDir;
-    window.askDeleteDeck = askDeleteDeck;
-    window.onSentenceInput = onSentenceInput;
+    // ── Exponer globales ──
+    Object.assign(window, {
+      switchTab, onDeckChange, handleFlip, markYes, markNo,
+      shuffleDeck, restartStudy,
+      speakFront, speakBack, speakSentFront, speakSentBack,
+      saveCard, clearForm, renderCardList, handleImg,
+      onWordInput, closeAC, pickSuggestion,
+      editCard, playCardAudio, askDeleteCard,
+      modalConfirm, closeModal,
+      selectDeck, playDeck, editDeck, saveDeck,
+      clearDeckForm, setDeckDir, askDeleteDeck, onSentenceInput
+    });
   </script>
 </body>
 
